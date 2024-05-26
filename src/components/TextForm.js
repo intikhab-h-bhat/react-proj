@@ -5,6 +5,10 @@ export default function TextForm(props) {
     //    console.log("Buttn Clicked");
     setText(text.toUpperCase());
   };
+  const ConvertToLower = () => {
+    //    console.log("Buttn Clicked");
+    setText(text.toLowerCase());
+  };
 
   const handleChange = (event) => {
     // console.log("change event");
@@ -26,8 +30,11 @@ export default function TextForm(props) {
           rows="8"
         />
       </div>
-      <button className="btn btn-primary" onClick={ConvertToUpper}>
+      <button className="btn btn-primary ms-3" onClick={ConvertToUpper}>
         Convert To UpperCase
+      </button>
+      <button className="btn btn-primary mx-3" onClick={ConvertToLower}>
+        Convert To LowerCase
       </button>
     </div>
     <div className="container my-3">
