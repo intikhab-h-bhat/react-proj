@@ -10,7 +10,19 @@ export default function TextForm(props) {
     setText(text.toLowerCase());
   };
   const ClearText = () => {
-    setText('');
+    setText("");
+  };
+
+  const CopyText = () => {
+    let copyText = document.getElementById("myText");
+    copyText.select();
+    navigator.clipboard.writeText(copyText.value);
+  };
+
+  const RemoveExtraSpaces = () => {
+    // let newText = text.split(/[ ]+/);
+    let newText = text.replace(/\s+/g, " ").trim();
+    setText(newText);
   };
 
   const handleChange = (event) => {
@@ -29,6 +41,9 @@ export default function TextForm(props) {
             className="form-control"
             value={text}
             id="myText"
+            style={{
+              backgroundColor: props.mode === "light" ? "white" : "gray"
+            }}
             onChange={handleChange}
             rows="8"
           />
@@ -37,10 +52,16 @@ export default function TextForm(props) {
           Convert To UpperCase
         </button>
         <button className="btn btn-primary mx-3" onClick={ConvertToLower}>
-         Convert To LowerCase
+          Convert To LowerCase
         </button>
         <button className="btn btn-primary mx-3" onClick={ClearText}>
           Clear
+        </button>
+        <button className="btn btn-primary mx-3" onClick={CopyText}>
+          Copy Text
+        </button>
+        <button className="btn btn-primary mx-3" onClick={RemoveExtraSpaces}>
+          Remove Extra Spaces
         </button>
       </div>
 
