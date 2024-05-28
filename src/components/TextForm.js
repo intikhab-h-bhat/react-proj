@@ -34,7 +34,9 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{
+            color: props.mode === "dark" ? "white" : "black"
+            }}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -42,7 +44,8 @@ export default function TextForm(props) {
             value={text}
             id="myText"
             style={{
-              backgroundColor: props.mode === "light" ? "white" : "gray"
+              backgroundColor: props.mode === "light" ? "white" : "gray",
+              color: props.mode === "dark" ? "white" : "black"
             }}
             onChange={handleChange}
             rows="8"
@@ -65,7 +68,9 @@ export default function TextForm(props) {
         </button>
       </div>
 
-      <div className="container my-3">
+      <div className="container my-3" style={{
+            color: props.mode === "dark" ? "white" : "black"
+            }}>
         <h1>Details</h1>
         <p>
           words:{text.split(" ").length} and characters:{text.length}{" "}
@@ -74,7 +79,7 @@ export default function TextForm(props) {
           Time it will take to read the text: {0.008 * text.split(" ").length}
         </p>
         <p>Preview</p>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter the text in textbox above to priview it."}</p>
       </div>
     </>
   );
