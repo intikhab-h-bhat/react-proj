@@ -22,6 +22,7 @@ export default function TextForm(props) {
 
   const RemoveExtraSpaces = () => {
     // let newText = text.split(/[ ]+/);
+    
     let newText = text.replace(/\s+/g, " ").trim();
     setText(newText);
   };
@@ -74,7 +75,7 @@ export default function TextForm(props) {
             }}>
         <h1>Details</h1>
         <p>
-          words:{text.split(" ").length} and characters:{text.length}{" "}
+          words:{text.trim().split(" ").length} and characters:{text.trim().length}
         </p>
         <p>
           Time it will take to read the text: {0.008 * text.split(" ").length}

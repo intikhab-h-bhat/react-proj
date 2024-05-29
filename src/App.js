@@ -15,6 +15,9 @@ function App() {
         type:type,
         msg:msg      
       });
+      setTimeout(() => {
+        setAlert(null)
+      }, 1500);
      
   }
 
@@ -23,11 +26,13 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "gray";
       ShowAlert("success","Darkmode enabled")
+      document.title="Text Anaylizer - Darkmode";
       
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       ShowAlert("success","Light mode enabled")
+      document.title="Text Anaylizer - Lightmode";
       
     }
   };
