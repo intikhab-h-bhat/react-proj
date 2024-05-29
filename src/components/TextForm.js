@@ -75,7 +75,7 @@ export default function TextForm(props) {
             }}>
         <h1>Details</h1>
         <p>
-          words:{text.trim().split(" ").length} and characters:{text.trim().length}
+          words:{text.split(" ").length} and characters:{text.length}{""}
         </p>
         <p>
           Time it will take to read the text: {0.008 * text.split(" ").length}
