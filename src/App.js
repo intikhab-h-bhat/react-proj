@@ -25,14 +25,14 @@ function App() {
   const ToggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "gray";
+      document.body.style.backgroundColor = "black";
       ShowAlert("success", "Darkmode enabled");
-      document.title = "Text Anaylizer - Darkmode";
+      // document.title = "Text Anaylizer - Darkmode";
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       ShowAlert("success", "Light mode enabled");
-      document.title = "Text Anaylizer - Lightmode";
+      // document.title = "Text Anaylizer - Lightmode";
     }
   };
 
@@ -61,7 +61,7 @@ function App() {
                 />
               }
             />
-            <Route exact path="/aboutus" element={<AboutUs />} />
+            <Route exact path="/aboutus" element={<AboutUs mode={mode}/>} />
            
           </Routes>
         </div>

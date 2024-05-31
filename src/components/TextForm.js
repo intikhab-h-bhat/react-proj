@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+
+
+
   const ConvertToUpper = () => {
     //    console.log("Buttn Clicked");
     setText(text.toUpperCase());
@@ -46,26 +49,26 @@ export default function TextForm(props) {
             value={text}
             id="myText"
             style={{
-              backgroundColor: props.mode === "light" ? "white" : "gray",
+              backgroundColor: props.mode === "light" ? "white" : "#565600",
               color: props.mode === "dark" ? "white" : "black"
             }}
             onChange={handleChange}
             rows="8"
           />
         </div>
-        <button className="btn btn-primary mx-3" onClick={ConvertToUpper}>
+        <button className="btn btn-primary mx-3 my-2" onClick={ConvertToUpper} disabled={text.length===0}>
           Convert To UpperCase
         </button>
-        <button className="btn btn-primary mx-3" onClick={ConvertToLower}>
+        <button className="btn btn-primary mx-3 my-2" onClick={ConvertToLower} disabled={text.length===0}>
           Convert To LowerCase
         </button>
-        <button className="btn btn-primary mx-3" onClick={ClearText}>
+        <button className="btn btn-primary mx-3 my-2" onClick={ClearText} disabled={text.length===0}>
           Clear
         </button>
-        <button className="btn btn-primary mx-3" onClick={CopyText}>
+        <button className="btn btn-primary mx-3 my-2" onClick={CopyText} disabled={text.length===0}>
           Copy Text
         </button>
-        <button className="btn btn-primary mx-3" onClick={RemoveExtraSpaces}>
+        <button className="btn btn-primary mx-3 my-2" onClick={RemoveExtraSpaces} disabled={text.length===0}>
           Remove Extra Spaces
         </button>
       </div>
@@ -75,10 +78,10 @@ export default function TextForm(props) {
             }}>
         <h1>Details</h1>
         <p>
-          words:{text.split(" ").length} and characters:{text.length}{""}
+          words:{text.split(" ").filter((element)=>{return element.length!=0}).length} and characters:{text.length}{""}
         </p>
         <p>
-          Time it will take to read the text: {0.008 * text.split(" ").length}
+          Time it will take to read the text: {0.008 * text.split(" ").filter((element)=>{return element.length!=0}).length}
         </p>
         <p>Preview</p>
         <p>{text.length>0?text:"Enter the text in textbox above to priview it."}</p>
